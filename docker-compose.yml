@@ -1,0 +1,21 @@
+version: '2'
+services:
+  pyload:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile-compose
+      args:
+        - USR=${MYUSER}
+        - GRP=${MYGROUP}
+    container_name: pyload
+    restart: always
+    #stop_signal: SIGINT
+    ports:
+      - "${WEBUI}:8000"
+      - "${REMOTE}:7227"
+      - "${CNL}:9666"
+    volumes:
+      - ${CONFIG}:/app/pyload/conf
+      - ${DOWNLOADS}:/app/pyload/Downloads
