@@ -11,7 +11,8 @@ services:
         - GRP=${MYGROUP}
     container_name: pyload
     restart: always
-    #stop_signal: SIGINT
+    #Change default kill signal to SINGINT (CTRL+C) to stop pyload
+    stop_signal: SIGINT
     ports:
       - "${WEBUI}:8000"
       - "${REMOTE}:7227"
