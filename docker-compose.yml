@@ -17,6 +17,7 @@ services:
       - "${WEBUI}:8000"
       - "${REMOTE}:7227"
       - "${CNL}:9666"
+    #Use z option to avoid SELinux issue
     volumes:
-      - ${CONFIG}:/app/pyload/conf
-      - ${DOWNLOADS}:/app/pyload/Downloads
+      - ${CONFIG}:/app/pyload/conf:z
+      - ${DOWNLOADS}:/app/pyload/Downloads:z
