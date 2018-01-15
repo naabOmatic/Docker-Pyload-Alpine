@@ -89,7 +89,7 @@ RUN wget https://github.com/pyload/pyload/archive/stable.zip \
   && cd pyload \
   #echo command simulates Enter keystroke for python command
   && echo -ne '\n' | python pyLoadCore.py --changedir --configdir=/app/pyload/conf \
-  && chown -R ${USR}:${GRP} "${INSTALL_PATH}/pyload" \\
+  && chown -R ${USR}:${GRP} "${INSTALL_PATH}/pyload" \
   #Create script for ENTRYPOINT :
   # - remove pyload.pid file when pyload is not properly stopped
   # - exec replace current bash process by python process at the and of script
